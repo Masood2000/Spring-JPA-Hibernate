@@ -53,6 +53,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
         return dataSource;
     }
 
+
     @Override
     public DataSource getNonJtaDataSource() {
         return null;
