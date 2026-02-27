@@ -1,5 +1,9 @@
 package com.masood.springjpahibernate.m_4;
 
+import com.masood.springjpahibernate.m_4.entities.Employee;
+import com.masood.springjpahibernate.m_4.entities.Product;
+import com.masood.springjpahibernate.m_4.entities.Student;
+import com.masood.springjpahibernate.m_4.entities.keys.StudentKey;
 import com.masood.springjpahibernate.persistence.CustomPersistenceUnitInfo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -23,11 +27,11 @@ public class HibernateClass {
     public  static void main(String[] args) {
 
         String puName = "oraclePU";
-        String password = "";
+        String password = "#";
 
         HashMap<String,String> props = new HashMap<>();
         props.put("hibernate.show_sql","true");
-        props.put("hibernate.hbm2ddl.auto","update"); //(create tables automatically) //always use with examples and tutorials. none -> production, create -> drop then create, update -> update tables only.
+        props.put("hibernate.hbm2ddl.auto","create"); //(create tables automatically) //always use with examples and tutorials. none -> production, create -> drop then create, update -> update tables only.
 
         //EntityManagerFactory emf = Persistence.createEntityManagerFactory("oraclePU");
         EntityManagerFactory emf = new HibernatePersistenceProvider()
@@ -38,6 +42,33 @@ public class HibernateClass {
 
         try {
             em.getTransaction().begin();
+
+
+            Employee ee = new Employee();
+
+            ee.setName("Masood");
+            ee.setAddress("Toulouse, France");
+
+
+            Product pp = new Product();
+            pp.setCode("chod");
+            pp.setNum(200l);
+            pp.setColor("blue");
+
+
+            StudentKey sk = new StudentKey();
+            sk.setCode("abc");
+            sk.setNum(300);
+
+            Student s = new Student();
+            s.setId(sk);
+            s.setName("masood");
+
+
+
+            em.persist(ee);
+            em.persist(pp);
+            em.persist(s);
 
 
 
