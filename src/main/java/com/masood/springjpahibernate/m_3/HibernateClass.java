@@ -15,7 +15,7 @@ import java.util.HashMap;
 // em.merge()   -> Merges an entity from outside the context to the context.
 // em.refresh() -> Mirror the context from the database.
 // em.detach()  -> Taking entity out of the context.
-// em.getReference()
+// em.getReference() -> query is generated when you do something with the object, like the lazy initialization in kotlin
 
 public class HibernateClass {
 
@@ -24,13 +24,15 @@ public class HibernateClass {
     public  static void main(String[] args) {
 
         String puName = "oraclePU";
-        String password = "";
+        String password = "#";
 
-
+        HashMap<String,String> props = new HashMap<>();
+        props.put("hibernate.show_sql","true");
+        props.put("hibernate.hbm2ddl.auto","update"); //(create tables automatically) //always use with examples and tutorials. none -> production, create -> drop then create, update -> update tables only.
 
         //EntityManagerFactory emf = Persistence.createEntityManagerFactory("oraclePU");
         EntityManagerFactory emf = new HibernatePersistenceProvider()
-                .createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName,password), new HashMap<>());
+                .createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName,password), props);
 
 
         EntityManager em = emf.createEntityManager();
@@ -39,14 +41,39 @@ public class HibernateClass {
             em.getTransaction().begin();
 
 
-            Employee ee = em.find(Employee.class,1);
-            ee.setAddress("Cite International225");
+            var e1 = new Employee();
+            e1.setName("masood");
+            e1.setAddress("france");
+            em.persist(e1);
 
-            System.out.println(ee.toString());
 
             em.getTransaction().commit();
 
-           // System.out.println("hello world");
+            //refresh
+            /*
+             Refresh
+             var e1 = em.find(Employee.class,1);
+
+             e1.setName("Masood ur Rehman22");
+
+             em.refresh(e1);
+             */
+            //persist, find
+            /*
+                        Employee ee = new Employee();
+                        ee.setId(1L);
+                        ee.setAddress("Ramonville");
+                        ee.setName("Masood");
+
+                        em.persist(ee);
+
+                        Employee ee2 = em.find(Employee.class,1);
+
+                        if(ee2 != null ) {
+                            ee2.setAddress("Cite International");
+                            System.out.println(ee.toString());
+                        }
+            */
 
         }
         finally {
