@@ -11,7 +11,6 @@ import org.hibernate.jpa.HibernatePersistenceProvider;
 
 import java.util.HashMap;
 
-
 // em.persist() -> Adding an entity in context
 // em.find()    -> Find by PK. Get from DB and add it to the context if not already.
 // em.remove()  -> Marking entity for removal.
