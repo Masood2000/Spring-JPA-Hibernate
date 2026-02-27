@@ -8,6 +8,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "HSTUDENT")
 @Getter
@@ -19,5 +21,16 @@ public class Student {
 
     private String name;
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return Objects.equals(id, student.id) && Objects.equals(name, student.name);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
 }
+

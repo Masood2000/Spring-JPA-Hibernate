@@ -9,6 +9,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "HPRODUCT")
 @Getter
@@ -32,5 +34,18 @@ public class Product {
                 ", number=" + num +
                 ", color='" + color + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return num == product.num && Objects.equals(code, product.code) && Objects.equals(color, product.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, num, color);
     }
 }

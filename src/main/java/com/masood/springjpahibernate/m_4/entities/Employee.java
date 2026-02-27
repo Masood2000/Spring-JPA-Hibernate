@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.Objects;
+
 @Entity()
 @Table(name = "HEMPLOYEE")
 @Getter
@@ -31,5 +33,18 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id) && Objects.equals(name, employee.name) && Objects.equals(address, employee.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address);
     }
 }
