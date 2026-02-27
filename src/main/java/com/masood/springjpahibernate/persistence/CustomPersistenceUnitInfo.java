@@ -49,7 +49,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:XE");
         dataSource.setUsername("C##MASOOD");
-        dataSource.setPassword("*****");
+        dataSource.setPassword("#");
         return dataSource;
     }
 
