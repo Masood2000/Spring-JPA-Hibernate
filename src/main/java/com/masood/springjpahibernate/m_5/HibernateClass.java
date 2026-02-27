@@ -35,7 +35,6 @@ public class HibernateClass {
                 .createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName,password), props);
 
 
-
         EntityManager em = emf.createEntityManager();
 
         try {
