@@ -16,6 +16,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 
 
 
+
     @Override
     public String getPersistenceUnitName() {
         return "oraclePU";
