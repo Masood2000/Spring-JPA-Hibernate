@@ -27,6 +27,7 @@ public class HibernateClass {
         String password = "";
 
 
+
         //EntityManagerFactory emf = Persistence.createEntityManagerFactory("oraclePU");
         EntityManagerFactory emf = new HibernatePersistenceProvider()
                 .createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName,password), new HashMap<>());
