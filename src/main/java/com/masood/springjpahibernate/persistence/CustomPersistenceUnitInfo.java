@@ -32,6 +32,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
         return "";
     }
 
+
     @Override
     public List<String> getQualifierAnnotationNames() {
         return List.of();
