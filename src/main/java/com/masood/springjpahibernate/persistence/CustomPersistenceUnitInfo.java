@@ -36,7 +36,10 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 
     @Override
     public List<String> getManagedClassNames() {
-        return List.of("com.masood.springjpahibernate.m_1.entities.Product", "com.masood.springjpahibernate.m_2.entities.Employee");
+        return List.of("com.masood.springjpahibernate.m_1.entities.Product",
+               // "com.masood.springjpahibernate.m_2.entities.Employee",
+                "com.masood.springjpahibernate.m_3.entities.Employee"
+        );
     }
 
 

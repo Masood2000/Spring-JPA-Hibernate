@@ -1,0 +1,30 @@
+package com.masood.springjpahibernate.m_3.entities;
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity()
+@Table(name = "HEMPLOYEE")
+@Getter
+@Setter
+public class Employee {
+
+    @Id
+    private Long id;
+    private String name;
+    private String address;
+
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+}

@@ -1,12 +1,21 @@
-package com.masood.springjpahibernate.m_2;
+package com.masood.springjpahibernate.m_3;
 
-import com.masood.springjpahibernate.m_2.entities.Employee;
+import com.masood.springjpahibernate.m_3.entities.Employee;
 import com.masood.springjpahibernate.persistence.CustomPersistenceUnitInfo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 
 import java.util.HashMap;
+
+
+
+// em.persist() -> Adding an entity in context
+// em.find()    -> Find by PK. Get from DB and add it to the context if not already.
+// em.remove()  -> Marking entity for removal.
+// em.merge()   -> Merges an entity from outside the context to the context.
+// em.refresh() -> Mirror the context from the database.
+// em.detach()  -> Taking entity out of the context.
 
 public class HibernateClass {
 
@@ -28,13 +37,6 @@ public class HibernateClass {
         try {
             em.getTransaction().begin();
 
-
-            // em.persist() -> adding an entity in context
-            // em.find()    -> find by PK. Get from DB and add it to the context if not already.
-            // em.remove()  -> marking entity for removal.
-            // em.merge()   -> merges an entity from outside the context to the context.
-            // em.refresh() -> mirror the context from the database.
-            // em.detach()  -> taking entity out of the context.
 
             Employee ee = em.find(Employee.class,1);
             ee.setAddress("Cite International");
