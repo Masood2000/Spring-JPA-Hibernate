@@ -37,7 +37,6 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
         return List.of();
     }
 
-
     @Deprecated
     @Override
     public PersistenceUnitTransactionType getTransactionType() {
