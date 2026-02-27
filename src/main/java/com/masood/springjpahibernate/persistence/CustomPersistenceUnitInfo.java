@@ -14,16 +14,46 @@ import java.util.Properties;
 
 public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
 
+    private final  String mPuName;
+
+    private final String mPassword;
+
+    public CustomPersistenceUnitInfo(String puName,String password) {
+        this.mPuName = puName;
+        this.mPassword = password;
+    }
 
 
     @Override
     public String getPersistenceUnitName() {
-        return "oraclePU";
+        return this.mPuName;
     }
 
     @Override
     public String getPersistenceProviderClassName() {
         return "org.hibernate.jpa.HibernatePersistenceProvider";
+    }
+
+    @Override
+    public List<String> getManagedClassNames() {
+        return List.of("com.masood.springjpahibernate.m_1.entities.Product", "com.masood.springjpahibernate.m_1.entities.Employee");
+    }
+
+
+    @Override
+    public DataSource getJtaDataSource() {
+        HikariDataSource dataSource = new HikariDataSource();
+        dataSource.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:XE");
+        dataSource.setUsername("C##MASOOD");
+        dataSource.setPassword(this.mPassword);
+        return dataSource;
+    }
+
+
+    @Deprecated
+    @Override
+    public PersistenceUnitTransactionType getTransactionType() {
+        return  PersistenceUnitTransactionType.RESOURCE_LOCAL;
     }
 
     @Override
@@ -37,20 +67,7 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
         return List.of();
     }
 
-    @Deprecated
-    @Override
-    public PersistenceUnitTransactionType getTransactionType() {
-        return  PersistenceUnitTransactionType.RESOURCE_LOCAL;
-    }
 
-    @Override
-    public DataSource getJtaDataSource() {
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:XE");
-        dataSource.setUsername("C##MASOOD");
-        dataSource.setPassword("#");
-        return dataSource;
-    }
 
     @Override
     public DataSource getNonJtaDataSource() {
@@ -72,10 +89,6 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
         return null;
     }
 
-    @Override
-    public List<String> getManagedClassNames() {
-        return List.of("com.masood.springjpahibernate.m_1.entities.Product");
-    }
 
     @Override
     public boolean excludeUnlistedClasses() {

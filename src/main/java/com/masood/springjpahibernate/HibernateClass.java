@@ -1,5 +1,6 @@
 package com.masood.springjpahibernate;
 
+import com.masood.springjpahibernate.m_1.entities.Employee;
 import com.masood.springjpahibernate.m_1.entities.Product;
 import com.masood.springjpahibernate.persistence.CustomPersistenceUnitInfo;
 import jakarta.persistence.EntityManager;
@@ -15,9 +16,12 @@ public class HibernateClass {
 
     public  static void main(String[] args) {
 
+        String puName = "oraclePU";
+        String password = "#";
+
         //EntityManagerFactory emf = Persistence.createEntityManagerFactory("oraclePU");
         EntityManagerFactory emf = new HibernatePersistenceProvider()
-                .createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(), new HashMap<>());
+                .createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName,password), new HashMap<>());
 
 
         EntityManager em = emf.createEntityManager();
@@ -25,9 +29,10 @@ public class HibernateClass {
         try {
             em.getTransaction().begin();
 
-            Product p = new Product();
-            p.setId(3L);
-            p.setName("pencil");
+            Employee p = new Employee();
+            p.setId(1L);
+            p.setName("masood");
+            p.setAddress("Ramonville, France");
 
             em.persist(p);
 
