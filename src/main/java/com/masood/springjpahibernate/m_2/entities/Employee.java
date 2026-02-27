@@ -1,4 +1,4 @@
-package com.masood.springjpahibernate.m_1.entities;
+package com.masood.springjpahibernate.m_2.entities;
 
 
 import jakarta.persistence.Entity;
@@ -18,4 +18,13 @@ public class Employee {
     private String name;
     private String address;
 
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

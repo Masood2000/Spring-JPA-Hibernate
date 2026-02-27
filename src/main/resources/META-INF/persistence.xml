@@ -20,7 +20,7 @@
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:oracle:thin:@localhost:1521:XE"/>
             <property name="javax.persistence.jdbc.user" value="C##MASOOD"/>
-            <property name="javax.persistence.jdbc.password" value="371qgwx#"/>
+            <property name="javax.persistence.jdbc.password" value="######"/>
 
          <!--   &lt;!&ndash; Hibernate Properties &ndash;&gt;
             <property name="hibernate.dialect"
