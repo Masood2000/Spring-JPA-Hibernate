@@ -29,12 +29,14 @@ public class HibernateClass {
             em.getTransaction().begin();
 
 
-            // em.persist() -> adding an entity in context
-            // em.find()    -> find by PK. Get from DB and add it to the context if not already.
-            // em.remove()  -> marking entity for removal.
-            // em.merge()   -> merges an entity from outside the context to the context.
-            // em.refresh() -> mirror the context from the database.
-            // em.detach()  -> taking entity out of the context.
+
+            // em.persist() -> Adding an entity in context
+            // em.find()    -> Find by PK. Get from DB and add it to the context if not already.
+            // em.remove()  -> Marking entity for removal.
+            // em.merge()   -> Merges an entity from outside the context to the context.
+            // em.refresh() -> Mirror the context from the database.
+            // em.detach()  -> Taking entity out of the context.
+            // em.getReference()
 
             Employee ee = em.find(Employee.class,1);
             ee.setAddress("Cite International");
