@@ -118,4 +118,5 @@ public class CustomPersistenceUnitInfo implements PersistenceUnitInfo {
     public ClassLoader getNewTempClassLoader() {
         return null;
     }
+
 }
