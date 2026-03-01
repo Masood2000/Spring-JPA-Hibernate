@@ -65,7 +65,6 @@ public class HibernateClass {
             em.persist(pp);
             em.persist(s);
 
-
             em.getTransaction().commit();
 
             //refresh
