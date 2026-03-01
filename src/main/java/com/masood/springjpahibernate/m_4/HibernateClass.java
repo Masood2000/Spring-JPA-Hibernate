@@ -40,7 +40,6 @@ public class HibernateClass {
         try {
             em.getTransaction().begin();
 
-
             Employee ee = new Employee();
 
             ee.setName("Masood");
