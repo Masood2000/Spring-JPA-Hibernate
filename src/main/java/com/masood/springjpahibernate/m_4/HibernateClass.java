@@ -59,7 +59,6 @@ public class HibernateClass {
             s.setId(sk);
             s.setName("masood");
 
-
             em.persist(ee);
             em.persist(pp);
             em.persist(s);
