@@ -51,7 +51,6 @@ public class HibernateClass {
             pp.setNum(200l);
             pp.setColor("blue");
 
-
             StudentKey sk = new StudentKey();
             sk.setCode("abc");
             sk.setNum(300);
