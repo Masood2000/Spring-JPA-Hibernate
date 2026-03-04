@@ -1,6 +1,5 @@
 package com.masood.springjpahibernate.m_5;
 
-
 import com.masood.springjpahibernate.persistence.CustomPersistenceUnitInfo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
