@@ -29,6 +29,7 @@ public class HibernateClass {
         String puName = "oraclePU";
         String password = "#";
 
+
         HashMap<String,String> props = new HashMap<>();
         props.put("hibernate.show_sql","true");
         props.put("hibernate.hbm2ddl.auto","create"); //(create tables automatically) //always use with examples and tutorials. none -> production, create -> drop then create, update -> update tables only.
