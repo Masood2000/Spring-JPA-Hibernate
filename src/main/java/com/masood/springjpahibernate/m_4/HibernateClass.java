@@ -91,7 +91,6 @@ public class HibernateClass {
                             System.out.println(ee.toString());
                         }
             */
-
         }
         finally {
             em.close();
