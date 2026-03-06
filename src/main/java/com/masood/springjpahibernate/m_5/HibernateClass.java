@@ -35,8 +35,8 @@ public class HibernateClass {
         EntityManager em = emf.createEntityManager();
 
         try {
-            em.getTransaction().begin();
 
+            em.getTransaction().begin();
 
             em.getTransaction().commit();
 
