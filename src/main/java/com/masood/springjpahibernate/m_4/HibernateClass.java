@@ -48,7 +48,6 @@ public class HibernateClass {
             ee.setAddress("Toulouse, France");
 
 
-
             Product pp = new Product();
             pp.setCode("chod");
             pp.setNum(200l);
