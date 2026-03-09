@@ -40,8 +40,6 @@ public class HibernateClass {
 
         try {
 
-
-
             em.getTransaction().begin();
 
             em.getTransaction().commit();
