@@ -23,7 +23,6 @@ public class HibernateClass {
 
 
 
-
         String puName = "oraclePU";
         String password = "#";
 
