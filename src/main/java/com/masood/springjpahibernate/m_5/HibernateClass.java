@@ -30,7 +30,6 @@ public class HibernateClass {
         //EntityManagerFactory emf = Persistence.createEntityManagerFactory("oraclePU");
         EntityManagerFactory emf = new HibernatePersistenceProvider()
                 .createContainerEntityManagerFactory(new CustomPersistenceUnitInfo(puName,password), props);
-
         EntityManager em = emf.createEntityManager();
 
         try {
