@@ -24,7 +24,6 @@ public class HibernateClass {
 
 
 
-
     public  static void main(String[] args) {
 
         String puName = "oraclePU";
