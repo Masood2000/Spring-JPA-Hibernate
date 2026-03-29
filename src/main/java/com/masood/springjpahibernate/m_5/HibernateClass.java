@@ -43,7 +43,6 @@ public class HibernateClass {
             em.close();
         }
 
-
     }
 
 }
